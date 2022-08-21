@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.tetsukick.bintango.jp">
+    package="com.tetsukick.myanmar.frash.card.jp">
    <application
         android:label="BINTANGO"
         android:name="${applicationName}"

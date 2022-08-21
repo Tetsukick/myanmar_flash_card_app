@@ -1,4 +1,4 @@
-package com.tetsukick.bintango.jp
+package com.tetsukick.myanmar.frash.card.jp
 
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.android.SplashScreen
