@@ -6,23 +6,11 @@ import 'package:bintango_jp/generated/json/tango_entity.g.dart';
 class TangoEntity {
 
 	int? id;
-	String? indonesian;
-	String? english;
-	String? japanese;
+	String? myanmar;
+	String? japaneseRomaji;
 	String? japaneseKana;
-	String? romaji;
-	String? option1;
-	String? option2;
-	String? option3;
-	int? category;
+	String? japaneseKanji;
 	int? level;
-	String? description;
-	String? option1Kana;
-	String? option1Romaji;
-	String? option2Kana;
-	String? option2Romaji;
-	String? option3Kana;
-	String? option3Romaji;
   
   TangoEntity();
 

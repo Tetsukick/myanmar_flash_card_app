@@ -52,7 +52,7 @@ class _LessonCardState extends ConsumerState<LessonCard> {
   Widget build(BuildContext context) {
     final tangoMaster = ref.watch(tangoListControllerProvider);
     if ((tangoMaster.dictionary.allTangos.isNotEmpty) && !isLoadAchievementRate) {
-      getAchievementRate();
+      // getAchievementRate();
     }
 
     return Stack(
@@ -152,24 +152,24 @@ class _LessonCardState extends ConsumerState<LessonCard> {
                   ),
                 ),
               ),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: SizeConfig.smallestMargin),
-                  child: Visibility(
-                    visible: !achievementRate.isNaN,
-                    child: LinearPercentIndicator(
-                      width: 88,
-                      lineHeight: 14.0,
-                      percent: achievementRate,
-                      center: Text('${(achievementRate * 100).toStringAsFixed(2)} %'),
-                      backgroundColor: Colors.grey,
-                      progressColor: ColorConfig.green,
-                      linearStrokeCap: LinearStrokeCap.roundAll,
-                    ),
-                  ),
-                ),
-              )
+              // Align(
+              //   alignment: Alignment.bottomCenter,
+              //   child: Padding(
+              //     padding: const EdgeInsets.symmetric(vertical: SizeConfig.smallestMargin),
+              //     child: Visibility(
+              //       visible: !achievementRate.isNaN,
+              //       child: LinearPercentIndicator(
+              //         width: 88,
+              //         lineHeight: 14.0,
+              //         percent: achievementRate,
+              //         center: Text('${(achievementRate * 100).toStringAsFixed(2)} %'),
+              //         backgroundColor: Colors.grey,
+              //         progressColor: ColorConfig.green,
+              //         linearStrokeCap: LinearStrokeCap.roundAll,
+              //       ),
+              //     ),
+              //   ),
+              // )
             ],
           ),
         ),

@@ -150,20 +150,20 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
     List<QuizOptionEntity> optionList = [];
     optionList.add(QuizOptionEntity()
       ..kana = entity.japaneseKana!
-      ..romaji = entity.romaji!
+      ..romaji = entity.japaneseRomaji!
     );
-    optionList.add(QuizOptionEntity()
-      ..kana = entity.option1Kana!
-      ..romaji = entity.option1Romaji!
-    );
-    optionList.add(QuizOptionEntity()
-      ..kana = entity.option2Kana!
-      ..romaji = entity.option2Romaji!
-    );
-    optionList.add(QuizOptionEntity()
-      ..kana = entity.option3Kana!
-      ..romaji = entity.option3Romaji!
-    );
+    // optionList.add(QuizOptionEntity()
+    //   ..kana = entity.option1Kana!
+    //   ..romaji = entity.option1Romaji!
+    // );
+    // optionList.add(QuizOptionEntity()
+    //   ..kana = entity.option2Kana!
+    //   ..romaji = entity.option2Romaji!
+    // );
+    // optionList.add(QuizOptionEntity()
+    //   ..kana = entity.option3Kana!
+    //   ..romaji = entity.option3Romaji!
+    // );
     optionList.shuffle();
     return Visibility(
       visible: _visibleOptions,
@@ -232,7 +232,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
               TextWidget.titleRedMedium(title),
               Flexible(
                   child: TextWidget.titleBlackLargestBold(
-                      isFront ? tango.indonesian! : tango.japanese!, maxLines: 2)
+                      isFront ? tango.myanmar! : tango.japaneseKana!, maxLines: 2)
               ),
             ],
           )
@@ -254,8 +254,8 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
                   children: [
                     TextWidget.titleRedMedium(title),
                     Flexible(child: TextWidget.titleBlackLargestBold(tango.japaneseKana!, maxLines: 2)),
-                    Flexible(child: TextWidget.titleBlackMediumBold(tango.romaji!, maxLines: 2)),
-                    Flexible(child: TextWidget.titleBlackMediumBold(tango.japanese!, maxLines: 2)),
+                    Flexible(child: TextWidget.titleBlackMediumBold(tango.japaneseRomaji!, maxLines: 2)),
+                    Flexible(child: TextWidget.titleBlackMediumBold(tango.japaneseKanji ?? '', maxLines: 2)),
                   ],
                 ),
               ),

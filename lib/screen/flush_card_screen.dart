@@ -1,3 +1,4 @@
+import 'package:bintango_jp/screen/completion_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';
@@ -79,7 +80,7 @@ class _FlushScreenState extends ConsumerState<FlashCardScreen> {
       return;
     }
     if (_isSoundOn) {
-      flutterTts.speak(questionAnswerList.lesson.tangos[currentIndex].indonesian ?? '');
+      flutterTts.speak(questionAnswerList.lesson.tangos[currentIndex].myanmar ?? '');
     }
   }
 
@@ -150,7 +151,7 @@ class _FlushScreenState extends ConsumerState<FlashCardScreen> {
       return _shimmerFlashCard(isTappable: false, isJapanese: true);
     }
     if (_isSoundOn) {
-      flutterTts.speak(questionAnswerList.lesson.tangos[currentIndex].japanese ?? '');
+      flutterTts.speak(questionAnswerList.lesson.tangos[currentIndex].japaneseKana ?? '');
     }
     return _flashCard(
         title: 'bahasa Jepang',
@@ -175,8 +176,6 @@ class _FlushScreenState extends ConsumerState<FlashCardScreen> {
             children: [
               _indonesia(entity),
               SizedBox(height: SizeConfig.smallMargin),
-              _english(entity),
-              SizedBox(height: SizeConfig.smallMargin),
             ],
           ),
         ),
@@ -198,8 +197,8 @@ class _FlushScreenState extends ConsumerState<FlashCardScreen> {
                 children: [
                   TextWidget.titleRedMedium(title),
                   Flexible(child: TextWidget.titleBlackLargestBold(tango.japaneseKana!, maxLines: 2)),
-                  Flexible(child: TextWidget.titleBlackMediumBold(tango.romaji!, maxLines: 2)),
-                  Flexible(child: TextWidget.titleBlackMediumBold(tango.japanese!, maxLines: 2)),
+                  Flexible(child: TextWidget.titleBlackMediumBold(tango.japaneseRomaji!, maxLines: 2)),
+                  Flexible(child: TextWidget.titleBlackMediumBold(tango.japaneseKanji ?? '', maxLines: 2)),
                 ],
               ),
             ),
@@ -207,7 +206,7 @@ class _FlushScreenState extends ConsumerState<FlashCardScreen> {
               visible: isFront,
               child: Align(
                 alignment: Alignment.topRight,
-                child: _soundButton(tango.japanese!),
+                child: _soundButton(tango.japaneseKana!),
               ),
             ),
             Align(
@@ -268,7 +267,7 @@ class _FlushScreenState extends ConsumerState<FlashCardScreen> {
       children: [
         Assets.png.indonesia64.image(height: _iconHeight, width: _iconWidth),
         SizedBox(width: SizeConfig.mediumSmallMargin),
-        Flexible(child: TextWidget.titleGrayLargeBold(entity.indonesian!, maxLines: 2)),
+        Flexible(child: TextWidget.titleGrayLargeBold(entity.myanmar!, maxLines: 2)),
       ],
     );
   }
@@ -278,7 +277,7 @@ class _FlushScreenState extends ConsumerState<FlashCardScreen> {
       children: [
         Assets.png.english64.image(height: _iconHeight, width: _iconWidth),
         SizedBox(width: SizeConfig.mediumSmallMargin),
-        Flexible(child: TextWidget.titleGrayLargeBold(entity.english!, maxLines: 2)),
+        // Flexible(child: TextWidget.titleGrayLargeBold(entity.english!, maxLines: 2)),
       ],
     );
   }
@@ -438,7 +437,7 @@ class _FlushScreenState extends ConsumerState<FlashCardScreen> {
     final questionAnswerList = ref.watch(tangoListControllerProvider);
     if (questionAnswerList.lesson.tangos.length <= currentIndex + 1) {
       setState(() => allCardsFinished = true);
-      QuizScreen.navigateReplacementTo(context);
+      CompletionScreen.navigateTo(context);
       return;
     }
     setState(() {

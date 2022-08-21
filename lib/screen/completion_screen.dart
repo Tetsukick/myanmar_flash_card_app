@@ -146,7 +146,7 @@ class _CompletionScreenState extends ConsumerState<CompletionScreen> {
                       SizedBox(height: SizeConfig.smallestMargin,),
                       TextWidget.titleBlackMediumBold(tango.japaneseKana ?? ''),
                       SizedBox(height: 2,),
-                      TextWidget.titleGraySmall(tango.indonesian ?? ''),
+                      TextWidget.titleGraySmall(tango.myanmar ?? ''),
                     ],
                   ),
                 ),

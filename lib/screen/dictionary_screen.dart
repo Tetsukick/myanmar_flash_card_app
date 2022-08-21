@@ -47,7 +47,7 @@ class DictionaryScreen extends ConsumerStatefulWidget {
 class _DictionaryScreenState extends ConsumerState<DictionaryScreen> {
   final itemCardHeight = 88.0;
   final GlobalKey<ScaffoldState> _key = GlobalKey();
-  SortType _selectedSortType = SortType.indonesian;
+  SortType _selectedSortType = SortType.myanmar;
   TangoCategory? _selectedCategory;
   LevelGroup? _selectedLevelGroup;
   WordStatusType? _selectedWordStatusType;
@@ -140,7 +140,7 @@ class _DictionaryScreenState extends ConsumerState<DictionaryScreen> {
                       SizedBox(height: SizeConfig.smallestMargin,),
                       TextWidget.titleBlackMediumBold(tango.japaneseKana ?? ''),
                       SizedBox(height: 2,),
-                      TextWidget.titleGraySmall(tango.indonesian ?? ''),
+                      TextWidget.titleGraySmall(tango.myanmar ?? ''),
                     ],
                   ),
                 ),
@@ -538,8 +538,8 @@ class _DictionaryScreenState extends ConsumerState<DictionaryScreen> {
     final allTangoList = tangoList.dictionary.allTangos;
     var searchTangos = allTangoList
         .where((tango) {
-          return tango.indonesian!.toLowerCase().contains(search.toLowerCase())
-            || tango.japanese!.contains(search) || tango.japaneseKana!.contains(search);
+          return tango.myanmar!.toLowerCase().contains(search.toLowerCase())
+            || tango.japaneseKana!.contains(search) || tango.japaneseRomaji!.contains(search);
         })
         .toList();
     setState(() => _searchedTango = searchTangos);

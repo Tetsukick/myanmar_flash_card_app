@@ -234,9 +234,9 @@ class _TranslationScreenState extends ConsumerState<TranslationScreen> {
                     children: [
                       wordStatus(tango),
                       SizedBox(height: SizeConfig.smallestMargin,),
-                      TextWidget.titleBlackMediumBold(tango.indonesian ?? ''),
+                      TextWidget.titleBlackMediumBold(tango.myanmar ?? ''),
                       SizedBox(height: 2,),
-                      TextWidget.titleGraySmall(tango.japanese ?? ''),
+                      TextWidget.titleGraySmall(tango.japaneseKana ?? ''),
                     ],
                   ),
                 ),

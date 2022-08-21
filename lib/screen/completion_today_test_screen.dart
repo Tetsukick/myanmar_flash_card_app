@@ -174,9 +174,9 @@ class _CompletionTodayTestScreenState extends ConsumerState<CompletionTodayTestS
                     children: [
                       wordStatus(tango),
                       SizedBox(height: SizeConfig.smallestMargin,),
-                      TextWidget.titleBlackMediumBold(tango.indonesian ?? ''),
+                      TextWidget.titleBlackMediumBold(tango.myanmar ?? ''),
                       SizedBox(height: 2,),
-                      TextWidget.titleGraySmall(tango.japanese ?? ''),
+                      TextWidget.titleGraySmall(tango.japaneseKana ?? ''),
                     ],
                   ),
                 ),

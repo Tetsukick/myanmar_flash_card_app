@@ -63,7 +63,7 @@ class _DictionaryDetailState extends ConsumerState<DictionaryDetail> {
     _isSoundOn = await PreferenceKey.isSoundOn.getBool();
     setState(() {});
     if (_isSoundOn) {
-      flutterTts.speak(this.widget.tangoEntity.japanese ?? '');
+      flutterTts.speak(this.widget.tangoEntity.japaneseKana ?? '');
     }
   }
 
@@ -98,13 +98,6 @@ class _DictionaryDetailState extends ConsumerState<DictionaryDetail> {
                         SizedBox(height: SizeConfig.smallestMargin),
                         _separater(),
                         _indonesian(),
-                        SizedBox(height: SizeConfig.smallMargin),
-                        _english(),
-                        SizedBox(height: SizeConfig.smallMargin),
-                        _descriptionHeader(),
-                        SizedBox(height: SizeConfig.smallMargin),
-                        _description(),
-                        SizedBox(height: SizeConfig.smallMargin),
                       ],
                     ),
                   ),
@@ -162,7 +155,7 @@ class _DictionaryDetailState extends ConsumerState<DictionaryDetail> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        _soundButton(this.widget.tangoEntity.japanese!),
+        _soundButton(this.widget.tangoEntity.japaneseKana!),
         IconButton(
             onPressed: () {
               analytics(DictionaryDetailItem.close);
@@ -181,7 +174,7 @@ class _DictionaryDetailState extends ConsumerState<DictionaryDetail> {
       children: [
         Assets.png.indonesia64.image(height: _iconHeight, width: _iconWidth),
         SizedBox(width: SizeConfig.mediumSmallMargin),
-        Flexible(child: TextWidget.titleGrayLargeBold(this.widget.tangoEntity.indonesian!, maxLines: 2)),
+        Flexible(child: TextWidget.titleGrayLargeBold(this.widget.tangoEntity.myanmar!, maxLines: 2)),
       ],
     );
   }
@@ -199,11 +192,11 @@ class _DictionaryDetailState extends ConsumerState<DictionaryDetail> {
         ),
         Padding(
           padding: const EdgeInsets.all(SizeConfig.smallestMargin),
-          child: TextWidget.titleBlackLargeBold(this.widget.tangoEntity.romaji!, maxLines: 2),
+          child: TextWidget.titleBlackLargeBold(this.widget.tangoEntity.japaneseRomaji!, maxLines: 2),
         ),
         Padding(
           padding: const EdgeInsets.all(SizeConfig.smallestMargin),
-          child: TextWidget.titleBlackLargeBold(this.widget.tangoEntity.japanese!, maxLines: 2),
+          child: TextWidget.titleBlackLargeBold(this.widget.tangoEntity.japaneseKana!, maxLines: 2),
         ),
       ],
     );
@@ -214,7 +207,7 @@ class _DictionaryDetailState extends ConsumerState<DictionaryDetail> {
       children: [
         Assets.png.english64.image(height: _iconHeight, width: _iconWidth),
         SizedBox(width: SizeConfig.mediumSmallMargin),
-        Flexible(child: TextWidget.titleGrayLargeBold(this.widget.tangoEntity.english!, maxLines: 2)),
+        // Flexible(child: TextWidget.titleGrayLargeBold(this.widget.tangoEntity.english!, maxLines: 2)),
       ],
     );
   }
@@ -231,7 +224,7 @@ class _DictionaryDetailState extends ConsumerState<DictionaryDetail> {
 
   Widget _descriptionHeader() {
     return Visibility(
-      visible: this.widget.tangoEntity.description != null && this.widget.tangoEntity.description != '',
+      // visible: this.widget.tangoEntity.description != null && this.widget.tangoEntity.description != '',
       child: Row(
         children: [
           TextWidget.titleRedMedium('豆知識', maxLines: 1),
@@ -244,12 +237,12 @@ class _DictionaryDetailState extends ConsumerState<DictionaryDetail> {
 
   Widget _description() {
     return Visibility(
-      visible: this.widget.tangoEntity.description != null && this.widget.tangoEntity.description != '',
+      // visible: this.widget.tangoEntity.description != null && this.widget.tangoEntity.description != '',
       child: Row(
         children: [
           Assets.png.infoNotes.image(height: _iconHeight, width: _iconWidth),
           SizedBox(width: SizeConfig.mediumSmallMargin),
-          Flexible(child: TextWidget.titleGrayMediumBold(this.widget.tangoEntity.description ?? '', maxLines: 10)),
+          // Flexible(child: TextWidget.titleGrayMediumBold(this.widget.tangoEntity.description ?? '', maxLines: 10)),
         ],
       ),
     );

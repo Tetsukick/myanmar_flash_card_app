@@ -1,3 +1,4 @@
+import 'package:bintango_jp/config/config.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:googleapis/drive/v2.dart';
 import 'package:bintango_jp/model/lecture.dart';
@@ -20,7 +21,7 @@ class FileController extends StateNotifier<List<LectureFolder>> {
         .where((element) => element.mimeType?.contains("spreadsheet") ?? false)
         .toList();
 
-    List<LectureFolder> result = [LectureFolder('BINTANGO_PROD', [])];
+    List<LectureFolder> result = [LectureFolder(Config.directoryName, [])];
 
     for (var spreadsheet in spreadsheets) {
       final lectureFolder = result[0];

@@ -34,7 +34,7 @@ class TangoListController extends StateNotifier<TangoMaster> {
     final sheetRepos = folder.spreadsheets.where((element) => element.name.contains(Config.dictionarySpreadSheetName)).map((e) => SheetRepo(e.id));
     List<List<Object?>> entryList = [];
     await Future.forEach<SheetRepo>(sheetRepos, (element) async {
-      List<List<Object?>>? _entryList = await Utils.retry(retries: 3, aFuture: element.getEntriesFromRange("A2:R1000"));
+      List<List<Object?>>? _entryList = await Utils.retry(retries: 3, aFuture: element.getEntriesFromRange("A2:F10000"));
       logger.d('SheetId ${element.spreadsheetId}: ${_entryList?.length ?? 0}');
       if (_entryList != null) {
         entryList.addAll(_entryList);
@@ -51,42 +51,30 @@ class TangoListController extends StateNotifier<TangoMaster> {
 
     for (var element in entryList) {
       if (element.isEmpty) continue;
-      if (element.length <= 16) continue;
+      if (element.length <= 5) continue;
       if (element[1].toString().trim() == ''
           || element[2].toString().trim() == '') {
         continue;
       }
 
-      TangoEntity tmpTango = TangoEntity()
+      final tmpTango = TangoEntity()
         ..id = int.parse(element[0].toString().trim())
-        ..indonesian = element[1].toString().trim()
-        ..english = element[2].toString().trim()
-        ..japanese = element[3].toString().trim()
-        ..japaneseKana = element[4].toString().trim()
-        ..romaji = element[5].toString().trim()
-        ..option1 = element[6].toString().trim()
-        ..option2 = element[7].toString().trim()
-        ..option3 = element[8].toString().trim()
-        ..category = int.parse(element[9].toString().trim())
-        ..level = int.parse(element[10].toString().trim())
-        ..description = element[11].toString().trim()
-        ..option1Kana = element[12].toString().trim()
-        ..option1Romaji = element[13].toString().trim()
-        ..option2Kana = element[14].toString().trim()
-        ..option2Romaji = element[15].toString().trim()
-        ..option3Kana = element[16].toString().trim()
-        ..option3Romaji = element[17].toString().trim();
+        ..myanmar = element[1].toString().trim()
+        ..japaneseRomaji = element[2].toString().trim()
+        ..japaneseKana = element[3].toString().trim()
+        ..japaneseKanji = element[4].toString().trim()
+        ..level = int.parse(element[5].toString().trim());
 
       tangoList.add(tmpTango);
     }
     tangoList.sort((a, b) {
-      return a.indonesian!.toLowerCase().compareTo(b.indonesian!.toLowerCase());
+      return a.japaneseRomaji!.toLowerCase().compareTo(b.japaneseRomaji!.toLowerCase());
     });
     state = state
       ..dictionary.allTangos = tangoList
       ..dictionary.sortAndFilteredTangos = tangoList;
 
-    await getTotalAchievement();
+    // await getTotalAchievement();
 
     return tangoList;
   }
@@ -102,11 +90,11 @@ class TangoListController extends StateNotifier<TangoMaster> {
     }
     List<TangoEntity> _filteredTangos = await filterTangoList(category: category, levelGroup: levelGroup, wordStatusType: wordStatusType);
     if (sortType != null) {
-      if (sortType == SortType.indonesian || sortType == SortType.indonesianReverse) {
+      if (sortType == SortType.myanmar || sortType == SortType.myanmarReverse) {
         _filteredTangos.sort((a, b) {
-          return a.indonesian!.toLowerCase().compareTo(b.indonesian!.toLowerCase());
+          return a.myanmar!.toLowerCase().compareTo(b.myanmar!.toLowerCase());
         });
-        if (sortType == SortType.indonesianReverse) {
+        if (sortType == SortType.myanmarReverse) {
           _filteredTangos = _filteredTangos.reversed.toList();
         }
       } else if (sortType == SortType.level || sortType == SortType.levelReverse) {
@@ -216,9 +204,8 @@ class TangoListController extends StateNotifier<TangoMaster> {
   }) async {
     final _tmpTangos = state.dictionary.allTangos;
     List<TangoEntity> _filteredTangos = _tmpTangos.where((element) {
-      bool _filterCategory = category != null ? element.category == category.id : true;
       bool _filterLevel = levelGroup != null ? levelGroup.range == element.level : true;
-      return _filterCategory && _filterLevel;
+      return _filterLevel;
     }).toList();
     if (wordStatusType != null) {
       final wordStatusList = await getAllWordStatus();
@@ -336,7 +323,7 @@ class TangoListController extends StateNotifier<TangoMaster> {
     final allTangoList = state.dictionary.allTangos;
     var searchTangos = allTangoList
         .where((tango) {
-          return tango.indonesian!.toLowerCase() == search.toLowerCase();
+          return tango.myanmar!.toLowerCase() == search.toLowerCase();
         }).toList();
     return searchTangos;
   }

@@ -115,7 +115,6 @@ class _LessonSelectorScreenState extends ConsumerState<LessonSelectorScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final tangoMaster = ref.watch(tangoListControllerProvider);
     return Stack(
       children: [
         SmartRefresher(
@@ -208,16 +207,16 @@ class _LessonSelectorScreenState extends ConsumerState<LessonSelectorScreen> {
                     ],
                   ),
                 ),
-                LinearPercentIndicator(
-                  width: MediaQuery.of(context).size.width - 40,
-                  animation: false,
-                  lineHeight: 20.0,
-                  animationDuration: 2500,
-                  percent: tangoMaster.totalAchievement,
-                  center: Text('${(tangoMaster.totalAchievement*100).toStringAsFixed(2)} %'),
-                  linearStrokeCap: LinearStrokeCap.roundAll,
-                  progressColor: ColorConfig.green,
-                ),
+                // LinearPercentIndicator(
+                //   width: MediaQuery.of(context).size.width - 40,
+                //   animation: false,
+                //   lineHeight: 20.0,
+                //   animationDuration: 2500,
+                //   percent: tangoMaster.totalAchievement,
+                //   center: Text('${(tangoMaster.totalAchievement*100).toStringAsFixed(2)} %'),
+                //   linearStrokeCap: LinearStrokeCap.roundAll,
+                //   progressColor: ColorConfig.green,
+                // ),
               ],
             )
         )

@@ -1,6 +1,6 @@
 enum SortType {
-  indonesian,
-  indonesianReverse,
+  myanmar,
+  myanmarReverse,
   level,
   levelReverse,
 }
@@ -8,14 +8,14 @@ enum SortType {
 extension SortTypeExt on SortType {
   String get title {
     switch (this) {
-      case SortType.indonesian:
-        return 'A→Z urutan naik';
-      case SortType.indonesianReverse:
-        return 'Z→A urutan menurun';
+      case SortType.myanmar:
+        return 'A→Z ascending order';
+      case SortType.myanmarReverse:
+        return 'Z→A descending order';
       case SortType.level:
-        return 'level urutan naik';
+        return 'level ascending order';
       case SortType.levelReverse:
-        return 'level urutan menurun';
+        return 'level descending order';
     }
   }
 }
