@@ -140,7 +140,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
       return _shimmerFlashCard();
     }
     return _flashCard(
-        title: 'bahasa Indonesia',
+        title: 'Myanmar',
         tango: questionAnswerList.lesson.tangos[currentIndex]);
   }
 
@@ -276,7 +276,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  TextWidget.titleRedMedium(isJapanese ? 'bahasa Jepang' : 'bahasa Indonesia'),
+                  TextWidget.titleRedMedium(isJapanese ? 'Japanese' : 'Myanmar'),
                   ShimmerWidget.rectangular(height: 40, width: 240,)
                 ],
               ),
@@ -427,7 +427,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
                 Visibility(
                   visible: !isTrue,
                   child: _flashCardAnsewer(
-                    title: 'bahasa Jepang',
+                    title: 'Japanese',
                     tango: entity,
                     isFront: false
                   ),

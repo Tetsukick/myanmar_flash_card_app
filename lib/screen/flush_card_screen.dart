@@ -154,7 +154,7 @@ class _FlushScreenState extends ConsumerState<FlashCardScreen> {
       flutterTts.speak(questionAnswerList.lesson.tangos[currentIndex].japaneseKana ?? '');
     }
     return _flashCard(
-        title: 'bahasa Jepang',
+        title: 'Japanese',
         tango: questionAnswerList.lesson.tangos[currentIndex]);
   }
 
@@ -332,7 +332,7 @@ class _FlushScreenState extends ConsumerState<FlashCardScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  TextWidget.titleRedMedium(isJapanese ? 'bahasa Jepang' : 'bahasa Indonesia'),
+                  TextWidget.titleRedMedium(isJapanese ? 'Japanese' : 'Myanmar'),
                   ShimmerWidget.rectangular(height: 40, width: 240,)
                 ],
               ),

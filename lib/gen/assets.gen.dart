@@ -262,6 +262,10 @@ class $AssetsPngGen {
   /// File path: assets/png/minus_128.png
   AssetGenImage get minus128 => const AssetGenImage('assets/png/minus_128.png');
 
+  /// File path: assets/png/myanmar_64.png
+  AssetGenImage get myanmar64 =>
+      const AssetGenImage('assets/png/myanmar_64.png');
+
   /// File path: assets/png/privacypolicy_128.png
   AssetGenImage get privacypolicy128 =>
       const AssetGenImage('assets/png/privacypolicy_128.png');
