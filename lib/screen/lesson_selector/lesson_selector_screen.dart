@@ -197,12 +197,12 @@ class _LessonSelectorScreenState extends ConsumerState<LessonSelectorScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      _userSectionItemTangoStatus(title: 'Jumlah kata diingat'),
+                      _userSectionItemTangoStatus(title: 'Words'),
                       _separater(),
                       _userSectionItem(
-                          title: 'Jumlah hari belajar',
+                          title: 'Days in a row',
                           data: activityList.map((e) => e.date).toList().toSet().toList().length,
-                          unitTitle: 'hari'
+                          unitTitle: ' day'
                       ),
                     ],
                   ),
@@ -393,7 +393,7 @@ class _LessonSelectorScreenState extends ConsumerState<LessonSelectorScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            TextWidget.titleGraySmallest('kata total'),
+            TextWidget.titleGraySmallest('total'),
             SizedBox(width: SizeConfig.smallestMargin),
             TextWidget.titleBlackMediumBold(
                 tangoMaster.dictionary.allTangos.length.toString()),

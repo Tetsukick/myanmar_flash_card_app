@@ -16,13 +16,13 @@ extension WordStatusTypeExt on WordStatusType {
   String get title {
     switch (this) {
       case WordStatusType.notLearned:
-        return 'belum belajar';
+        return 'not yet learned';
       case WordStatusType.notRemembered:
-        return 'belum ingat';
+        return 'not yet remember';
       case WordStatusType.remembered:
-        return 'hampir ingat';
+        return 'almost remember';
       case WordStatusType.perfectRemembered:
-        return 'ingat';
+        return 'remembered';
     }
   }
 
@@ -31,41 +31,41 @@ extension WordStatusTypeExt on WordStatusType {
       case WordStatusType.notLearned:
         return '';
       case WordStatusType.notRemembered:
-        return 'tidak tahu';
+        return 'not remember';
       case WordStatusType.remembered:
-        return 'sudah cek';
+        return 'almost remember';
       case WordStatusType.perfectRemembered:
-        return 'ingat';
+        return 'remembered';
     }
   }
 
   Widget get icon {
-    final _height = 16.0;
-    final _width = 16.0;
+    const height = 16.0;
+    const width = 16.0;
     switch (this) {
       case WordStatusType.notLearned:
-        return Assets.png.minus128.image(height: _height, width: _width);
+        return Assets.png.minus128.image(height: height, width: width);
       case WordStatusType.notRemembered:
-        return Assets.png.cancelRed128.image(height: _height, width: _width);
+        return Assets.png.cancelRed128.image(height: height, width: width);
       case WordStatusType.remembered:
-        return Assets.png.checkedGreen128.image(height: _height, width: _width);
+        return Assets.png.checkedGreen128.image(height: height, width: width);
       case WordStatusType.perfectRemembered:
-        return Assets.png.checkGreenRich64.image(height: _height, width: _width);
+        return Assets.png.checkGreenRich64.image(height: height, width: width);
     }
   }
 
   Widget get iconLarge {
-    final _height = 40.0;
-    final _width = 40.0;
+    const height = 40.0;
+    const width = 40.0;
     switch (this) {
       case WordStatusType.notLearned:
-        return Assets.png.minus128.image(height: _height, width: _width);
+        return Assets.png.minus128.image(height: height, width: width);
       case WordStatusType.notRemembered:
-        return Assets.png.cancelRed128.image(height: _height, width: _width);
+        return Assets.png.cancelRed128.image(height: height, width: width);
       case WordStatusType.remembered:
-        return Assets.png.checkedGreen128.image(height: _height, width: _width);
+        return Assets.png.checkedGreen128.image(height: height, width: width);
       case WordStatusType.perfectRemembered:
-        return Assets.png.checkGreenRich64.image(height: _height, width: _width);
+        return Assets.png.checkGreenRich64.image(height: height, width: width);
     }
   }
 
