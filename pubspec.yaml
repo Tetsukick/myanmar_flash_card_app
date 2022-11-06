@@ -88,6 +88,7 @@ flutter:
     - assets/png/
     - assets/dot/
 
+# flutter pub run flutter_launcher_icons:main
 flutter_icons:
   android: "launcher_icon"
   ios: true
