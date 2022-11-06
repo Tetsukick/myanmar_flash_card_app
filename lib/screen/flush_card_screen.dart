@@ -265,7 +265,7 @@ class _FlushScreenState extends ConsumerState<FlashCardScreen> {
   Widget _indonesia(TangoEntity entity) {
     return Row(
       children: [
-        Assets.png.indonesia64.image(height: _iconHeight, width: _iconWidth),
+        Assets.png.myanmar64.image(height: _iconHeight, width: _iconWidth),
         SizedBox(width: SizeConfig.mediumSmallMargin),
         Flexible(child: TextWidget.titleGrayLargeBold(entity.myanmar!, maxLines: 2)),
       ],

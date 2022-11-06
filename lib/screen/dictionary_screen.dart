@@ -45,7 +45,7 @@ class DictionaryScreen extends ConsumerStatefulWidget {
 }
 
 class _DictionaryScreenState extends ConsumerState<DictionaryScreen> {
-  final itemCardHeight = 88.0;
+  final itemCardHeight = 100.0;
   final GlobalKey<ScaffoldState> _key = GlobalKey();
   SortType _selectedSortType = SortType.myanmar;
   TangoCategory? _selectedCategory;

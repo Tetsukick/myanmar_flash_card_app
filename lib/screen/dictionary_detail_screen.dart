@@ -172,7 +172,7 @@ class _DictionaryDetailState extends ConsumerState<DictionaryDetail> {
   Widget _indonesian() {
     return Row(
       children: [
-        Assets.png.indonesia64.image(height: _iconHeight, width: _iconWidth),
+        Assets.png.myanmar64.image(height: _iconHeight, width: _iconWidth),
         SizedBox(width: SizeConfig.mediumSmallMargin),
         Flexible(child: TextWidget.titleGrayLargeBold(this.widget.tangoEntity.myanmar!, maxLines: 2)),
       ],

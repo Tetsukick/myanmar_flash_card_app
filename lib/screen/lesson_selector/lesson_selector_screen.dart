@@ -187,7 +187,7 @@ class _LessonSelectorScreenState extends ConsumerState<LessonSelectorScreen> {
     final tangoMaster = ref.watch(tangoListControllerProvider);
     return Card(
         child: Container(
-            height: 138,
+            height: 108,
             width: double.infinity,
             child: Column(
               children: [
