@@ -26,6 +26,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:in_app_review/in_app_review.dart';
+import 'package:lottie/lottie.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
@@ -150,10 +151,10 @@ class _LessonSelectorScreenState extends ConsumerState<LessonSelectorScreen> {
         ),
         Visibility(
           visible: !_isLoadTangoList,
-          child: Container(
-            color: Colors.black.withOpacity(0.2),
-            child: Center(
-              child: CircularProgressIndicator(),
+          child: Center(
+            child: Lottie.asset(
+              Assets.lottie.splashScreen,
+              height: 300,
             ),
           ),
         ),
