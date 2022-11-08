@@ -116,7 +116,7 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
               applicationName: info.appName,
               applicationVersion: info.version,
               applicationIcon: Assets.icon.appIcon.image(),
-              applicationLegalese: "BINTANGOアプリのライセンス情報",
+              applicationLegalese: "アプリのライセンス情報",
             );
           } else if (menuItem == MenuItem.feedback) {
             final inAppReview = InAppReview.instance;

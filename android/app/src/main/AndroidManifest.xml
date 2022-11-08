@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.tetsukick.myanmar.frash.card.jp">
    <application
-        android:label="BINTANGO"
+        android:label="JLPT"
         android:name="${applicationName}"
         android:usesCleartextTraffic="false"
         android:icon="@mipmap/launcher_icon">
