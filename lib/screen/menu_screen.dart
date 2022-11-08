@@ -205,7 +205,7 @@ extension MenuItemExt on MenuItem {
   String get url {
     switch (this) {
       case MenuItem.privacyPolicy:
-        return 'https://qiita.com/tetsukick/items/a3c844940064e15f0dac';
+        return 'https://github.com/Tetsukick/application_privacy_policy/blob/main/README.md';
       case MenuItem.feedback:
         return 'https://docs.google.com/forms/d/e/1FAIpQLSddXsg9zlzk0Zd-Y_0n0pEfsK3U246OJoI0cQCOCVL7XyRWOw/viewform';
       case MenuItem.developerInfo:
