@@ -58,7 +58,7 @@
       </dict>
     </array>
     <key>NSUserTrackingUsageDescription</key>
-    <string>Digunakan untuk menampilkan iklan yang dipersonalisasi.</string>
+    <string>Used for displaying personalized ads.</string>
     <key>LSApplicationQueriesSchemes</key>
     	<array>
     	<string>instagram-stories</string>
