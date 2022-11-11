@@ -180,7 +180,6 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
 
 enum MenuItem {
   settingSound,
-  privacyPolicy,
   feedback,
   developerInfo,
   licence
@@ -191,8 +190,6 @@ extension MenuItemExt on MenuItem {
     switch (this) {
       case MenuItem.settingSound:
         return 'Setting suara';
-      case MenuItem.privacyPolicy:
-        return 'Privacy policy';
       case MenuItem.feedback:
         return 'Feedback';
       case MenuItem.developerInfo:
@@ -204,8 +201,6 @@ extension MenuItemExt on MenuItem {
 
   String get url {
     switch (this) {
-      case MenuItem.privacyPolicy:
-        return 'https://github.com/Tetsukick/application_privacy_policy/blob/main/README.md';
       case MenuItem.feedback:
         return 'https://docs.google.com/forms/d/e/1FAIpQLSddXsg9zlzk0Zd-Y_0n0pEfsK3U246OJoI0cQCOCVL7XyRWOw/viewform';
       case MenuItem.developerInfo:
@@ -221,8 +216,6 @@ extension MenuItemExt on MenuItem {
     switch (this) {
       case MenuItem.settingSound:
         return Assets.png.soundOn64.image(height: _height, width: _width);
-      case MenuItem.privacyPolicy:
-        return Assets.png.privacypolicy128.image(height: _height, width: _width);
       case MenuItem.feedback:
         return Assets.png.feedback128.image(height: _height, width: _width);
       case MenuItem.developerInfo:
@@ -236,8 +229,6 @@ extension MenuItemExt on MenuItem {
     switch (this) {
       case MenuItem.settingSound:
         return MenuAnalyticsItem.soundSetting;
-      case MenuItem.privacyPolicy:
-        return MenuAnalyticsItem.privacyPolicy;
       case MenuItem.feedback:
         return MenuAnalyticsItem.feedback;
       case MenuItem.developerInfo:
