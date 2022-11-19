@@ -204,7 +204,7 @@ extension MenuItemExt on MenuItem {
       case MenuItem.feedback:
         return 'https://docs.google.com/forms/d/e/1FAIpQLSddXsg9zlzk0Zd-Y_0n0pEfsK3U246OJoI0cQCOCVL7XyRWOw/viewform';
       case MenuItem.developerInfo:
-        return Platform.isIOS ? 'https://linktr.ee/TeppeiKikuchi' : 'https://twitter.com/tpi29';
+        return 'https://twitter.com/tpi29';
       default:
         return '';
     }

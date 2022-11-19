@@ -3,9 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
 
-import '../../../config/color_config.dart';
 import '../../../config/config.dart';
 import '../../../config/size_config.dart';
 import '../../../domain/file_service.dart';
@@ -58,8 +56,8 @@ class _LessonCardState extends ConsumerState<LessonCard> {
     return Stack(
       children: [
         _lectureCard(
-            category: this.widget.category,
-            levelGroup: this.widget.levelGroup,
+            category: widget.category,
+            levelGroup: widget.levelGroup,
         ),
         Visibility(
           visible: achievementRate.isNaN,
@@ -94,8 +92,8 @@ class _LessonCardState extends ConsumerState<LessonCard> {
     return Card(
       child: InkWell(
         onTap: () async {
-          var rand = new math.Random();
-          int lottery = rand.nextInt(3);
+          final rand = math.Random();
+          final lottery = rand.nextInt(3);
           if (lottery == 0) {
             await showInterstitialAd();
           }
@@ -103,12 +101,14 @@ class _LessonCardState extends ConsumerState<LessonCard> {
           analytics(LectureSelectorItem.lessonCard,
               others: 'category: ${category?.id}, levelGroup: ${levelGroup?.index}');
 
-          ref.read(tangoListControllerProvider.notifier)
+          await ref.read(tangoListControllerProvider.notifier)
               .setLessonsData(
                 category: category,
                 levelGroup: levelGroup,
               );
-          FlashCardScreen.navigateTo(context);
+          if (mounted) {
+            FlashCardScreen.navigateTo(context);
+          }
         },
         child: Container(
           width: itemCardWidth,

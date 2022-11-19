@@ -84,7 +84,7 @@ class _FlushScreenState extends ConsumerState<FlashCardScreen> {
     }
   }
 
-  void initializeDB() async {
+  Future<void> initializeDB() async {
     final _database = await $FloorAppDatabase
         .databaseBuilder(Config.dbName)
         .addMigrations([migration1to2])
@@ -124,7 +124,7 @@ class _FlushScreenState extends ConsumerState<FlashCardScreen> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         TextWidget.titleGraySmallBold('${currentIndex + 1} / ${questionAnswerList.lesson.tangos.length}'),
-        SizedBox(width: SizeConfig.smallMargin),
+        const SizedBox(width: SizeConfig.smallMargin),
         Utils.soundSettingSwitch(value: _isSoundOn,
             onToggle: (val) {
               setState(() => _isSoundOn = val);
