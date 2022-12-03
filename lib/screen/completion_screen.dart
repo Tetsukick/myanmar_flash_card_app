@@ -37,7 +37,7 @@ class CompletionScreen extends ConsumerStatefulWidget {
 }
 
 class _CompletionScreenState extends ConsumerState<CompletionScreen> {
-  final itemCardHeight = 88.0;
+  final itemCardHeight = 100.0;
   final baseQuestionTime = 1000 * 15;
   final _baseScore = 10.0;
   AppDatabase? database;
@@ -73,15 +73,15 @@ class _CompletionScreenState extends ConsumerState<CompletionScreen> {
               Assets.lottie.shibaOtukare,
               height: 150
             ),
-            const SizedBox(height: SizeConfig.smallMargin),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TextWidget.titleGrayLargeBold('score total: '),
-                TextWidget.titleRedLargestBold(calculateTotalScore(tangoList.lesson.quizResults)),
-                TextWidget.titleGrayLargeBold(' poin'),
-              ]
-            ),
+            // const SizedBox(height: SizeConfig.smallMargin),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: [
+            //     TextWidget.titleGrayLargeBold('total score: '),
+            //     TextWidget.titleRedLargestBold(calculateTotalScore(tangoList.lesson.quizResults)),
+            //     TextWidget.titleGrayLargeBold(' point'),
+            //   ]
+            // ),
             const SizedBox(height: SizeConfig.smallMargin),
             Flexible(
               child: ListView.builder(
@@ -104,7 +104,7 @@ class _CompletionScreenState extends ConsumerState<CompletionScreen> {
                       FlashCardScreen.navigateReplacementTo(context);
                     },
                     img: Assets.png.continue128,
-                    title: 'lanjut belajar'
+                    title: 'continue'
                 ),
                 const SizedBox(width: SizeConfig.smallMargin),
                 _button(
@@ -113,7 +113,7 @@ class _CompletionScreenState extends ConsumerState<CompletionScreen> {
                       Navigator.of(context).popUntil((route) => route.isFirst);
                     },
                     img: Assets.png.home128,
-                    title: 'balik home'
+                    title: 'back home'
                 ),
               ],
             ),

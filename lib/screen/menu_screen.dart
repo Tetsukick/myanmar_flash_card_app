@@ -181,7 +181,6 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
 enum MenuItem {
   settingSound,
   feedback,
-  developerInfo,
   licence
 }
 
@@ -189,11 +188,9 @@ extension MenuItemExt on MenuItem {
   String get title {
     switch (this) {
       case MenuItem.settingSound:
-        return 'Setting suara';
+        return 'Sound Setting';
       case MenuItem.feedback:
         return 'Feedback';
-      case MenuItem.developerInfo:
-        return 'Developer info';
       case MenuItem.licence:
         return 'License';
     }
@@ -203,8 +200,6 @@ extension MenuItemExt on MenuItem {
     switch (this) {
       case MenuItem.feedback:
         return 'https://docs.google.com/forms/d/e/1FAIpQLSddXsg9zlzk0Zd-Y_0n0pEfsK3U246OJoI0cQCOCVL7XyRWOw/viewform';
-      case MenuItem.developerInfo:
-        return 'https://twitter.com/tpi29';
       default:
         return '';
     }
@@ -218,8 +213,6 @@ extension MenuItemExt on MenuItem {
         return Assets.png.soundOn64.image(height: _height, width: _width);
       case MenuItem.feedback:
         return Assets.png.feedback128.image(height: _height, width: _width);
-      case MenuItem.developerInfo:
-        return Assets.png.developer128.image(height: _height, width: _width);
       case MenuItem.licence:
         return Assets.png.licence128.image(height: _height, width: _width);
     }
@@ -231,8 +224,6 @@ extension MenuItemExt on MenuItem {
         return MenuAnalyticsItem.soundSetting;
       case MenuItem.feedback:
         return MenuAnalyticsItem.feedback;
-      case MenuItem.developerInfo:
-        return MenuAnalyticsItem.developer;
       case MenuItem.licence:
         return MenuAnalyticsItem.license;
     }

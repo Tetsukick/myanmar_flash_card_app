@@ -353,7 +353,7 @@ class _FlushScreenState extends ConsumerState<FlashCardScreen> {
                       children: [
                         Assets.png.tap128.image(height: 24, width: 24),
                         SizedBox(height: SizeConfig.smallMargin,),
-                        TextWidget.titleGraySmallBold('Menampilkan artinya')
+                        TextWidget.titleGraySmallBold('open answer')
                       ],
                     )
                 ),
